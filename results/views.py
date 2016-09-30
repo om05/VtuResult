@@ -9,6 +9,5 @@ import pdb
 def index(request):
         # whenever we create a template html we will obviously need to fill the html will data , in jango we can send those parameter by puttin them in a dictionary called context{}
         context ={}
-        pdb.set_trace()
-        template=loader.get_template('vtu_results/index.html')
+        template=loader.get_template('results/index.html')
         return HttpResponse(template.render(context,request))

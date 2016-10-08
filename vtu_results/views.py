@@ -15,6 +15,8 @@ def index(request):
         return HttpResponse(template.render(context,request))
 
 def marks(request):
+        # whenever a user enters a usn from the front end and submit the form it comes to this function 
+        # since we use post parameter , we need to get the values of those parameter which are  usn and semester 
 	if request.method == "POST":
 		try:
 			usn = request.POST['usn']
@@ -22,10 +24,16 @@ def marks(request):
 		except KeyError:
 			return HttpResponse("wrong way to reach here please go back to the home page")	
 		else:
+                        # we call get_results_from_dynamodb to connect to dynamodb and get the results stored in it
 			results = get_results_from_dynamodb(usn,sem)
 			if results:
+                                # if no results are found the results variable will be empty 
 				return HttpResponse(results)
 			else:
+                                # when we do not have results in dynamodb u need to check the vtu website if results 
+                                # are available if so then display those results and store vtu results in dynamodb
+                                # the scraper code is der with u rite ? u need to make use of it to connect to results.vtu and get the results 
+                                # (assigned to omkar)
 				return HttpResponse('needs handling')		
 	else :
 			return HttpResponse("wrong way to reach here please go back to the home page")			

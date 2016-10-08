@@ -1,3 +1,12 @@
 <h1> we have moved on to templates(need rolwin to work on this page)</h1>
 
 <h3> this file is located at inside templates folder in the project </h3>
+
+
+<form action="marks/" method="POST" id>
+{% csrf_token %}
+	<div>
+		<h6>USN: <input type = "Text" id="usn" name ="usn">  </h6> <h6>Sem   <input type = "Text" id="sem" name='sem' size="2"> </h6>
+		<input type="submit" text='submit'>
+	</div>
+</form>

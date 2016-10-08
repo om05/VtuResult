@@ -26,5 +26,6 @@ from . import views
 # www.easyvturesults.com/4pa11cs011 it should do a different process and show the results
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$',include('results.urls')),
+    url(r'^$',views.index),
+    url(r'marks/',views.marks),
 ]

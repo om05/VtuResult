@@ -13,8 +13,9 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from django.conf.urls import url,include
 from django.contrib import admin
+
 from . import views
 # This is where you define what action needs to be taken when you encounter a particular url using regular expressions
 # We will define the admin section in the future for now lets just work on the results page /
@@ -25,5 +26,5 @@ from . import views
 # www.easyvturesults.com/4pa11cs011 it should do a different process and show the results
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$',views.index,name='index')
+    url(r'^$',include('results.urls')),
 ]
